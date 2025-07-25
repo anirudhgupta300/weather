@@ -40,11 +40,12 @@ export async function Redirect(formData:FormData){
 
 export async function GetData(input:string): Promise<WeatherData>{
  const city:string| null = input;
- const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
+ const apiKey = process.env.OPENWEATHER_API_KEY
+
  if(city=== null){
     throw new Error("Please enter a city name")
  }
- const Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}}`)
+ const Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
  if(!Response.ok){
     throw new Error(`Something went wrong ${Response.status}`)
  }
