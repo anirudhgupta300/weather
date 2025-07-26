@@ -6,7 +6,7 @@ export default async function page({params}:{
     params: Promise<{ city : string }>;
 }){
     const CityName = (await params).city
-    const data = await GetData(CityName)
+    const data = await GetData(null,null,CityName)
     console.log(CityName)
     return(
         <div className="bg-black border border-gray-800 min-h-screen rounded-2xl p-8 text-white shadow-2xl w-full">
